@@ -1,6 +1,6 @@
 component {
-	cfSorry function init(required string accessToken) {
-		variables.accessToken = arguments.accessToken;
+	cfSorry function init(required string apiToken) {
+		variables.apiToken = arguments.apiToken;
 
 		variables.endpointURL = 'https://api.sorryapp.com/v1';
 		variables.charset = 'utf-8';
@@ -8,16 +8,8 @@ component {
 		return this;
 	}
 
-	function getHello() {
-		var packet = {
-			 resource: '/hello'
-			,method = 'GET'
-		};
-
-		var response = send(packet);
-		var parsedResponse = parseResponse(response);
-
-		return parsedResponse;
+	function getVersion() {
+		return 'v0.1';
 	}
 
 	function getPages() {
@@ -44,6 +36,87 @@ component {
 		return parsedResponse;
 	}
 
+	function addPage(
+		 string name=''
+		,string timezone=''
+		,string support_email=''
+		,string support_telephone=''
+		,string support_url=''
+		,string visible_to_search=''
+		,string meta_title=''
+		,string meta_description=''
+		,string google_analytics_id=''
+	) {
+		var packet = {
+			 resource: '/pages'
+			,method = 'POST'
+		};
+
+		packet.params = [];
+
+		for (var argument in arguments) {
+			arrayAppend(packet.params, {name=argument, value=arguments[argument]});
+		}
+
+		var response = send(packet);
+		var parsedResponse = parseResponse(response);
+
+		return parsedResponse;
+	}
+
+	function updatePage(
+		 required string id
+		,string name=''
+		,string timezone=''
+		,string support_email=''
+		,string support_telephone=''
+		,string support_url=''
+		,string visible_to_search=''
+		,string meta_title=''
+		,string meta_description=''
+		,string google_analytics_id=''
+	) {
+		var packet = {
+			 resource: '/pages/#arguments.id#'
+			,method = 'PATCH'
+		};
+
+		packet.params = [];
+
+		for (var argument in arguments) {
+			arrayAppend(packet.params, {name=argument, value=arguments[argument]});
+		}
+
+		var response = send(packet);
+		var parsedResponse = parseResponse(response);
+
+		return parsedResponse;
+	}
+
+	function deletePage(required string id) {
+		var packet = {
+			 resource: '/pages/#arguments.id#'
+			,method = 'DELETE'
+		};
+
+		var response = send(packet);
+		var parsedResponse = parseResponse(response);
+
+		return parsedResponse;
+	}
+
+	function getHello() {
+		var packet = {
+			 resource: '/hello'
+			,method = 'GET'
+		};
+
+		var response = send(packet);
+		var parsedResponse = parseResponse(response);
+
+		return parsedResponse;
+	}
+
 /////////////////////////////////////////////////////////////////////
 // private methods
 /////////////////////////////////////////////////////////////////////
@@ -54,8 +127,11 @@ component {
 
 		var httpService = new http();
 
+		httpService['getParameters'] = getParameters;
+
 		switch(packet.method){
 			case "POST":
+			case "PATCH":
 				httpService.addParam(name='Content-Type', type='header', value='application/x-www-form-urlencoded; charset=UTF-8');
 
 				for (var param in arguments.packet.params) {
@@ -72,7 +148,7 @@ component {
 		httpService.setCharset(variables.charset);
 
 		httpService.addParam(name='wrapper', value='cfSorry', type='header');
-		httpService.addParam(name='Authorization', value='Bearer #variables.accessToken#', type='header');
+		httpService.addParam(name='Authorization', value='Bearer #variables.apiToken#', type='header');
 
 		response = httpService.send().getPrefix();
 
@@ -86,7 +162,7 @@ component {
 			 success = true
 			,failure = false
 			,data = {}
-			,error = ''
+			,error = {}
 			,code = '200'
 			,status = 'OK'
 		};
@@ -114,12 +190,23 @@ component {
 
 		switch(statusCode) {
 			case '200':
-				result.data = deserializeJSON(fileContentJSON).response;
+				if (len(fileContentJSON) == 0) {
+					result.data = {};
+				} else {
+					result.data = deserializeJSON(fileContentJSON).response;
+				}
 			break;
 
 			default:
+				if (len(fileContentJSON) == 0) {
+					result.error = {};
+				} else {
+					result.error = deserializeJSON(fileContentJSON);
+				}
+
 				result.success = false;
-				result.data = '';
+				result.failure = true;
+				result.data = {};
 			break;
 		}
 
@@ -141,5 +228,11 @@ component {
 		}
 
 		return arguments.data;
+	}
+
+	private array function getParameters()
+		hint='I return the HTTP service parameters'
+	{
+		return variables.params;
 	}
 }
