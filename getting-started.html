@@ -1,0 +1,32 @@
+---
+layout: default
+title: Getting Started
+---
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Getting Started</h1>
+
+			<ol>
+				<li>First you'll need an account with <a href="https://www.sorryapp.com/" target="_blank">Sorry&#8482;</a>. It's free to sign up and you'll get an API key which you'll need later.</li>
+
+				<li>Visit the <a href="https://github.com/richardherbert/cfsorry" target="_blank">cfSorry page on GitHub</a>, download the latest version and then drop the component <code>cfSorry.cfc</code> into the webroot of your website.</li>
+
+				<li>Instantiate the <code>cfSorry.cfc</code> component.<br> This can be done with:
+
+				<ul>
+					<li>Your dependency injection frameworks of choice (<a href="http://wirebox.ortusbooks.com/" target="_blank">WireBox</a> or <a href="http://framework-one.github.io/documentation/using-di-one.html" target="_blank">DI/1</a>)</li>
+					<li>Assigning it to an application scoped variable in your <code>Application.cfc</code> event <code>onApplicationStart()</code> with
+					<pre>
+public boolean function onApplicationStart() {
+	application.cfSorry = new cfSorry("myAccessToken");
+
+	return true;
+}</pre></li>
+					<li>Or on demand where you need the service with <pre>cfSorry = new cfSorry("myAccessToken");</pre></li>
+				</ul>
+			</ol>
+		</div>
+	</div>
+</div>

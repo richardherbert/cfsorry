@@ -1,0 +1,43 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>{{ contents.title }}: {{ contents.method }}</h1>
+
+			<p>{{ contents.description }}</p>
+
+			<h3>Example</h3>
+
+			<pre>{{ contents.example }}</pre>
+
+			{% if arguments %}
+				<h3>Arguments</h3>
+
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Argument</th>
+							<th>Required</th>
+							<th>Default</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						{% for argument in arguments %}
+							<tr>
+								<td>{{ argument.argument }}</td>
+								<td>{{ argument.required }}</td>
+								<td>{{ argument.default }}</td>
+								<td>{{ argument.description }}</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			{% endif%}
+
+			<h3>Response</h3>
+
+			<img src="/img/response/{{ contents.response }}" class="img-responsive" alt="Response">
+		</div>
+	</div>
+</div>

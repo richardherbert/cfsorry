@@ -1,10 +1,49 @@
 ---
-layout: default
 title: cfSorry
+layout: default
 ---
 <div class="jumbotron">
 	<div class="container">
 		<h1>cfSorry</h1>
 		<p>I am a ColdFusion component (cfc) that provides a convenient wrapper around the <a href="https://docs.sorryapp.com/api/v1/">Sorry&#8482; API</a>.</p>
+
+		<p>I work with <a href="http://www.adobe.com/products/coldfusion-family.html">Adobe ColdFusion</a> 10+, 11+, 2016+, <a href="http://lucee.org/">Lucee</a> 4.5+ and <a href="http://www.getrailo.org/">Railo</a> 4.2+</p>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Getting Started</h1>
+
+			<ol>
+				<li>First you'll need an account with <a href="https://www.sorryapp.com/" target="_blank">Sorry&#8482;</a>. It's free to sign up and you'll get an API token which you'll need later.</li>
+
+				<li>Visit the <a href="https://github.com/richardherbert/cfsorry" target="_blank">cfSorry page on GitHub</a>, download the latest version and then drop the component <code>cfSorry.cfc</code> into the webroot of your website.</li>
+
+				<li>Instantiate the <code>cfSorry.cfc</code> component.<br> This can be done with:
+
+				<ul>
+					<li>Your dependency injection frameworks of choice (<a href="http://wirebox.ortusbooks.com/" target="_blank">WireBox</a> or <a href="http://framework-one.github.io/documentation/using-di-one.html" target="_blank">DI/1</a>)</li>
+					<li>Assigning it to an application scoped variable in your <code>Application.cfc</code> event <code>onApplicationStart()</code> with&hellip;
+					<pre>
+public boolean function onApplicationStart() {
+	application.cfSorry = new cfSorry("myAPIToken");
+
+	return true;
+}</pre></li>
+					<li>Or on demand where you need the service with&hellip; <pre>cfSorry = new cfSorry("myAPIToken")</pre></li>
+				</ul>
+
+				<li>Use the component where you need in your code like&hellip;<pre>
+&lt;cfset pages = cfSorry.getPages()&gt;</pre>
+				or
+				<pre>
+&lt;cfscript&gt;
+	pages = cfSorry.getPages();
+&lt;/cfscript&gt;</pre>
+				</li>
+			</ol>
+		</div>
 	</div>
 </div>

@@ -1,0 +1,46 @@
+title: Pages
+method: updatePage()
+description: I update a Status Page of the account.
+example: page = cfSorry.updatePage(id="401752b6", name="My updated second Status Page", timezone="Greenland", support_email="larry.page@example.com", support_telephone="999 54321", support_url="http://www.example.com/updated", visible_to_search="true", meta_title="My updated search meta title", meta_description="My updated search meta description which has to be a minimum of 50 characters.", google_analytics_id="UA-00000-00")
+arguments:
+  - argument: id
+    required: true
+    default: --
+    description: The unique identifier for the page.
+  - argument: name
+    required: true
+    default: --
+    description: The name used within the UI to distinguish your page.
+  - argument: timezone
+    required: true
+    default: --
+    description: The timezone used to display datetimes on the status page.
+  - argument: support_email
+    required: true
+    default: --
+    description: The email address your audience should use.
+  - argument: support_telephone
+    required: true
+    default: --
+    description: The telephone number your audience should use to contact you.
+  - argument: support_url
+    required: true
+    default: --
+    description: The URL of the helpdesk your audience should use.
+  - argument: visible_to_search
+    required: true
+    default: --
+    description: Boolean, used to control robots.txt and meta robots tag.
+  - argument: google_analytics_id
+    required: true
+    default: --
+    description: Your Google UA identity, used for adding tracking code to your page.
+  - argument: meta_title
+    required: false
+    default: empty string
+    description: Optional meta title used for search engines.
+  - argument: meta_description
+    required: false
+    default: empty string
+    description: Optional meta description used for search engines.
+response: pages/update.png

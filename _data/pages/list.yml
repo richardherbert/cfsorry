@@ -1,0 +1,5 @@
+title: Pages
+method: getPages()
+description: I retrieve all the Status Pages.
+example: pages = cfSorry.getPages()
+response: pages/list.png

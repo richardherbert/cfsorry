@@ -9,3 +9,5 @@ url: "http://richardherbert.github.io/cfsorry" # the base hostname & protocol fo
 
 # Build settings
 markdown: kramdown
+
+exclude: ['CNAME','*.sublime-*']
