@@ -1,7 +1,7 @@
 title: Pages
 method: getPage()
 description: I retrieve the selected Status Page.
-example: page = cfSorry.getPage(id="e590a095")
+example: page = cfSorry.getPage(id="05b88d61")
 arguments:
   - argument: id
     required: true

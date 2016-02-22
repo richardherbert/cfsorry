@@ -1,7 +1,7 @@
 title: Pages
 method: deletePage()
 description: I delete the requested Status Page.
-example: page = cfSorry.deletePage(id="401752b6")
+example: page = cfSorry.deletePage(id="8a4b33b2")
 arguments:
   - argument: id
     required: true
