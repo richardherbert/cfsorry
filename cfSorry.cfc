@@ -190,6 +190,8 @@ component {
 
 		switch(statusCode) {
 			case '200':
+			case '201':
+			case '204':
 				if (len(fileContentJSON) == 0) {
 					result.data = {};
 				} else {

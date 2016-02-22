@@ -23,7 +23,7 @@ component extends='example._tests.BaseTest' {
 
 							var response = variables.cfSorry.deletePage(newPage.data.id);
 
-							statusTest(response);
+							statusTest(response=response, code='204', status='No Content');
 
 							debug(response);
 

@@ -23,7 +23,7 @@ component extends='example._tests.BaseTest' {
 
 							debug(response);
 
-							statusTest(response);
+							statusTest(response=response, code='201', status='Created');
 
 							var data = response.data;
 
@@ -62,7 +62,7 @@ component extends='example._tests.BaseTest' {
 
 							debug(response);
 
-							statusTest(response);
+							statusTest(response=response, code='201', status='Created');
 
 							var data = response.data;
 
