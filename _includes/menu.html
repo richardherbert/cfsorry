@@ -10,5 +10,12 @@
 				<li><a href="{{ site.baseurl }}/pages/delete.html">deletePage()</a></li>
 			</ul>
 		</li>
+
+		<li class="dropdown {% if page.dir == '/timezones' %}active{% endif %}">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Timezones <span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="/timezones/list.html">getTimezones()</a></li>
+			</ul>
+		</li>
 	</ul>
 </div>
