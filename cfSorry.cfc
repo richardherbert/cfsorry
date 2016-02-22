@@ -105,6 +105,22 @@ component {
 		return parsedResponse;
 	}
 
+/////////////////////////////////////////////////////////////////////
+
+	function getTimezones() {
+		var packet = {
+			 resource: '/timezones'
+			,method = 'GET'
+		};
+
+		var response = send(packet);
+		var parsedResponse = parseResponse(response);
+
+		return parsedResponse;
+	}
+
+/////////////////////////////////////////////////////////////////////
+
 	function getHello() {
 		var packet = {
 			 resource: '/hello'
