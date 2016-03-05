@@ -1,0 +1,10 @@
+title: Brands
+method: getBrand()
+description: I retrieve the selected Status Page Brand.
+example: page = cfSorry.getBrand(id="25fa0ba6")
+arguments:
+  - argument: id
+    required: true
+    default: --
+    description: The unique identifier for the page.
+response: brands/view.png

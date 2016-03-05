@@ -1,0 +1,60 @@
+title: Brands
+method: updateBrand()
+description: I update the Brand for a Status Page.
+example: page = cfSorry.updateBrand(id="5f814e65", color_state_ok="#999", color_state_warning="#999", color_navbar_background="#999", color_navbar_links="#999", color_header_background="#999", color_header_links="#999", color_header_text="#999", color_body_background="#999", color_body_links="#999", color_body_text="#999")
+
+
+
+
+
+arguments:
+  - argument: id
+    required: true
+    default: --
+    description: The unique identifier for the page.
+  - argument: color_state_ok
+    required: false
+    default: empty string
+    description: HEX or RGBa colour used on the page to indicate that things are ok.
+  - argument: color_state_warning
+    required: false
+    default: empty string
+    description: HEX or RGBa colour used on the page to indicate that things are wrong.
+  - argument: color_navbar_background
+    required: false
+    default: empty string
+    description: HEX or RGBa colour used on on the navbar at the top of the page.
+  - argument: color_navbar_links
+    required: false
+    default: empty string
+    description: HEX or RGBa colour used for the text links in the nabbar.
+  - argument: color_navbar_button_background
+    required: false
+    default: empty string
+    description: HEX or RGBa colour used for buttons in the nabar.
+  - argument: color_header_background
+    required: false
+    default: empty string
+    description: HEX or RGBa colour used as the background on the page header.
+  - argument: color_header_links
+    required: false
+    default: empty string
+    description: HEX or RGBa colour used for links in the page header.
+  - argument: color_header_text
+    required: false
+    default: empty string
+    description: HEX or RGBa colour used for text in the page header.
+  - argument: color_body_background
+    required: false
+    default: empty string
+    description: HEX or RGBa colour used as the background on the page body.
+  - argument: color_body_links
+    required: false
+    default: empty string
+    description: HEX or RGBa colour used for links in the page body.
+  - argument: color_body_text
+    required: false
+    default: empty string
+    description: HEX or RGBa colour used for text in the page body.
+
+response: brands/update.png
