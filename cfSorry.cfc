@@ -9,7 +9,7 @@ component {
 	}
 
 	function getVersion() {
-		return 'v0.2';
+		return 'v0.3';
 	}
 
 	function getPages() {
@@ -98,6 +98,62 @@ component {
 			 resource: '/pages/#arguments.id#'
 			,method = 'DELETE'
 		};
+
+		var response = send(packet);
+		var parsedResponse = parseResponse(response);
+
+		return parsedResponse;
+	}
+
+/////////////////////////////////////////////////////////////////////
+
+	function getBrand(required string id) {
+		var packet = {
+			 resource: '/pages/#arguments.id#/brand'
+			,method = 'GET'
+		};
+
+		var response = send(packet);
+		var parsedResponse = parseResponse(response);
+
+		return parsedResponse;
+	}
+
+	function deleteBrand(required string id) {
+		var packet = {
+			 resource: '/pages/#arguments.id#/brand'
+			,method = 'DELETE'
+		};
+
+		var response = send(packet);
+		var parsedResponse = parseResponse(response);
+
+		return parsedResponse;
+	}
+
+	function updateBrand(
+		 required string id
+		,string color_state_ok=''
+		,string color_state_warning=''
+		,string color_navbar_background=''
+		,string color_navbar_links=''
+		,string color_header_background=''
+		,string color_header_links=''
+		,string color_header_text=''
+		,string color_body_background=''
+		,string color_body_links=''
+		,string color_body_text=''
+	) {
+		var packet = {
+			 resource: '/pages/#arguments.id#/brand'
+			,method = 'PATCH'
+		};
+
+		packet.params = [];
+
+		for (var argument in arguments) {
+			arrayAppend(packet.params, {name=argument, value=arguments[argument]});
+		}
 
 		var response = send(packet);
 		var parsedResponse = parseResponse(response);

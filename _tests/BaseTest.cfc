@@ -37,6 +37,19 @@ component extends='testbox.system.BaseSpec' {
 			,meta_description: "My updated search meta description which has to be a minimum of 50 characters."
 			,google_analytics_id: "UA-00000-00"
 		};
+
+		variables.mockedBrandData = {
+			 color_state_ok: "##999"
+			,color_state_warning: "##999"
+			,color_navbar_background: "##999"
+			,color_navbar_links: "##999"
+			,color_header_background: "##999"
+			,color_header_links: "##999"
+			,color_header_text: "##999"
+			,color_body_background: "##999"
+			,color_body_links: "##999"
+			,color_body_text: "##999"
+		};
 	}
 
 	function afterAll() {
