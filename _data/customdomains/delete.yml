@@ -1,0 +1,12 @@
+title: Custom Domains
+method: deleteCustomDomain()
+description: I delete the requested Status Page Custom Domain.
+example: page = cfSorry.deleteCustomDomain(id="3a0c79e6")
+
+arguments:
+  - argument: id
+    required: true
+    default: --
+    description: The unique identifier for the page.
+
+response: response/customDomains/delete.html

@@ -1,0 +1,16 @@
+title: Custom Domains
+method: addCustomDomain()
+description: I add the Custom Domain for a Status Page.
+example: page = cfSorry.addCustomDomain(id="93b8b8dd", domain="cfsorry.example.com")
+
+arguments:
+  - argument: id
+    required: true
+    default: --
+    description: The unique identifier for the page.
+  - argument: domain
+    required: true
+    default: --
+    description: The custom domain to add to the page.
+
+response: response/customDomains/add.html

@@ -1,0 +1,12 @@
+title: Custom Domains
+method: getCustomDomain()
+description: I retrieve the selected Status Page Custom Domain.
+example: page = cfSorry.getCustomDomain(id="2080c7f5")
+
+arguments:
+  - argument: id
+    required: true
+    default: --
+    description: The unique identifier for the page.
+
+response: response/customDomains/view.html
