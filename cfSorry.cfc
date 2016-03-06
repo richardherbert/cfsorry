@@ -9,7 +9,7 @@ component {
 	}
 
 	function getVersion() {
-		return 'v0.3';
+		return 'v0.4';
 	}
 
 	function getPages() {
@@ -154,6 +154,53 @@ component {
 		for (var argument in arguments) {
 			arrayAppend(packet.params, {name=argument, value=arguments[argument]});
 		}
+
+		var response = send(packet);
+		var parsedResponse = parseResponse(response);
+
+		return parsedResponse;
+	}
+
+/////////////////////////////////////////////////////////////////////
+
+	function addCustomDomain(
+		 required string id
+		,required string domain
+	) {
+		var packet = {
+			 resource: '/pages/#arguments.id#/custom_domain'
+			,method = 'POST'
+		};
+
+		packet.params = [];
+
+		for (var argument in arguments) {
+			arrayAppend(packet.params, {name=argument, value=arguments[argument]});
+		}
+
+		var response = send(packet);
+		var parsedResponse = parseResponse(response);
+
+		return parsedResponse;
+	}
+
+	function getCustomDomain(required string id) {
+		var packet = {
+			 resource: '/pages/#arguments.id#/custom_domain'
+			,method = 'GET'
+		};
+
+		var response = send(packet);
+		var parsedResponse = parseResponse(response);
+
+		return parsedResponse;
+	}
+
+	function deleteCustomDomain(required string id) {
+		var packet = {
+			 resource: '/pages/#arguments.id#/custom_domain'
+			,method = 'DELETE'
+		};
 
 		var response = send(packet);
 		var parsedResponse = parseResponse(response);

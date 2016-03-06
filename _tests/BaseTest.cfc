@@ -50,6 +50,11 @@ component extends='testbox.system.BaseSpec' {
 			,color_body_links: "##999"
 			,color_body_text: "##999"
 		};
+
+		variables.mockedCustomDomainData = {
+			 type: "CNAME"
+			,domain: "cfsorry.example.com"
+		};
 	}
 
 	function afterAll() {
