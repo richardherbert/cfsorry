@@ -2,4 +2,5 @@ title: Timezones
 method: getTimezones()
 description: I retrieve all the Timezones.
 example: timezones = cfSorry.getTimezones()
-response: timezones/list.png
+
+response: response/timezones/list.html

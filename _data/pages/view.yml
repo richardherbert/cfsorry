@@ -1,10 +1,12 @@
 title: Pages
 method: getPage()
 description: I retrieve the selected Status Page.
-example: page = cfSorry.getPage(id="05b88d61")
+example: page = cfSorry.getPage(id="efd63021")
+
 arguments:
   - argument: id
     required: true
     default: --
     description: The unique identifier for the page.
-response: pages/view.png
+
+response: response/pages/view.html

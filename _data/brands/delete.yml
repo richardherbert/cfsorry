@@ -1,10 +1,12 @@
 title: Brands
 method: deleteBrand()
 description: I delete the requested Status Page Brand.
-example: page = cfSorry.deleteBrand(id="f344a187")
+example: page = cfSorry.deleteBrand(id="0bc88efd")
+
 arguments:
   - argument: id
     required: true
     default: --
     description: The unique identifier for the page.
-response: brands/delete.png
+
+response: response/brands/delete.html

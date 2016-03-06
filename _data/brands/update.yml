@@ -1,11 +1,7 @@
 title: Brands
 method: updateBrand()
 description: I update the Brand for a Status Page.
-example: page = cfSorry.updateBrand(id="5f814e65", color_state_ok="#999", color_state_warning="#999", color_navbar_background="#999", color_navbar_links="#999", color_header_background="#999", color_header_links="#999", color_header_text="#999", color_body_background="#999", color_body_links="#999", color_body_text="#999")
-
-
-
-
+example: page = cfSorry.updateBrand(id="0bc88efd", color_state_ok="#999", color_state_warning="#999", color_navbar_background="#999", color_navbar_links="#999", color_header_background="#999", color_header_links="#999", color_header_text="#999", color_body_background="#999", color_body_links="#999", color_body_text="#999")
 
 arguments:
   - argument: id
@@ -57,4 +53,4 @@ arguments:
     default: empty string
     description: HEX or RGBa colour used for text in the page body.
 
-response: brands/update.png
+response: response/brands/update.html

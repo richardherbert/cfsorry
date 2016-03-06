@@ -1,7 +1,8 @@
 title: Pages
 method: updatePage()
 description: I update a Status Page of the account.
-example: page = cfSorry.updatePage(id="8a4b33b2", name="My updated second Status Page", timezone="Greenland", support_email="larry.page@example.com", support_telephone="999 54321", support_url="http://www.example.com/updated", visible_to_search="true", meta_title="My updated search meta title", meta_description="My updated search meta description which has to be a minimum of 50 characters.", google_analytics_id="UA-00000-00")
+example: page = cfSorry.updatePage(id="44abccac", name="My updated second Status Page", timezone="Greenland", support_email="larry.page@example.com", support_telephone="999 54321", support_url="http://www.example.com/updated", visible_to_search="true", meta_title="My updated search meta title", meta_description="My updated search meta description which has to be a minimum of 50 characters.", google_analytics_id="UA-00000-00")
+
 arguments:
   - argument: id
     required: true
@@ -43,4 +44,5 @@ arguments:
     required: false
     default: empty string
     description: Optional meta description used for search engines.
-response: pages/update.png
+
+response: response/pages/update.html

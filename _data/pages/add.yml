@@ -2,6 +2,7 @@ title: Pages
 method: addPage()
 description: I add a Status Page to the account.
 example: page = cfSorry.addPage(name="My first Status Page", timezone="UTC", support_email="ellen.page@example.com", support_telephone="123 45678", support_url="http=/www.example.com", visible_to_search="true", meta_title="My search meta title", meta_description="My search meta description which has to be a minimum of 50 characters.", google_analytics_id="UA-99999-99")
+
 arguments:
   - argument: name
     required: true
@@ -39,4 +40,5 @@ arguments:
     required: false
     default: empty string
     description: Optional meta description used for search engines.
-response: pages/add.png
+
+response: response/pages/add.html
