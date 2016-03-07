@@ -1,0 +1,16 @@
+title: Notices
+method: deleteNotice()
+description: I delete the requested Status Page Notice.
+example: notice = cfSorry.deleteNotice(id="f44e0c07", notice="951")
+
+arguments:
+  - argument: id
+    required: true
+    default: --
+    description: The unique identifier for the Status Page.
+  - argument: notice
+    required: true
+    default: --
+    description: The unique identifier for the Notice.
+
+response: response/notices/delete.html

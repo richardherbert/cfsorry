@@ -1,0 +1,24 @@
+title: Notices
+method: updateNotice()
+description: I update a Status Page Notice for the account.
+example: Notice = cfSorry.updateNotice(id="f44e0c07", notice="951", additional_comment="My first additional comment", state_event="close")
+
+arguments:
+  - argument: id
+    required: true
+    default: --
+    description: The unique identifier for the Status Page.
+  - argument: notice
+    required: true
+    default: --
+    description: The unique identifier for the Notice.
+  - argument: additional_comment
+    required: true
+    default: --
+    description: Pass this to create a single update to introduce the notice.
+  - argument: state_event
+    required: true
+    default: --
+    description: An option to allow you to close/reopen the notice.
+
+response: response/notices/update.html

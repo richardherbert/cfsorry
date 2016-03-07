@@ -1,0 +1,16 @@
+title: Notices
+method: addNotice()
+description: I add a Status Page Notice to the account.
+example: notice = cfSorry.addNotice(id="f44e0c07", initial_comment="My first Notice")
+
+arguments:
+  - argument: id
+    required: true
+    default: --
+    description: The unique identifier for the Status Page.
+  - argument: initial_comment
+    required: true
+    default: --
+    description: Pass this to create a single update to introduce the notice.
+
+response: response/notices/add.html

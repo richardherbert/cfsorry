@@ -1,0 +1,10 @@
+---
+title: getNotices()
+layout: default
+---
+
+{% assign contents = site.data.notices.list %}
+{% assign arguments = site.data.notices.list.arguments %}
+{% assign response = site.data.notices.list.response %}
+
+{% include method.html %}

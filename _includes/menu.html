@@ -11,6 +11,17 @@
 			</ul>
 		</li>
 
+		<li class="dropdown {% if page.dir == '/Notices' %}active{% endif %}">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notices <span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="{{ site.url }}{{ site.baseurl }}/notices/add.html">addNotice()</a></li>
+				<li><a href="{{ site.url }}{{ site.baseurl }}/notices/view.html">getNotice()</a></li>
+				<li><a href="{{ site.url }}{{ site.baseurl }}/notices/list.html">getNotices()</a></li>
+				<li><a href="{{ site.url }}{{ site.baseurl }}/notices/update.html">updateNotice()</a></li>
+				<li><a href="{{ site.url }}{{ site.baseurl }}/notices/delete.html">deletePage()</a></li>
+			</ul>
+		</li>
+
 		<li class="dropdown {% if page.dir == '/brands' %}active{% endif %}">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Brands <span class="caret"></span></a>
 			<ul class="dropdown-menu">
