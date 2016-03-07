@@ -9,7 +9,7 @@ component {
 	}
 
 	function getVersion() {
-		return 'v0.4';
+		return 'v0.5';
 	}
 
 	function getPages() {
@@ -94,6 +94,88 @@ component {
 	}
 
 	function deletePage(required string id) {
+		var packet = {
+			 resource: '/pages/#arguments.id#'
+			,method = 'DELETE'
+		};
+
+		var response = send(packet);
+		var parsedResponse = parseResponse(response);
+
+		return parsedResponse;
+	}
+
+/////////////////////////////////////////////////////////////////////
+
+	function getNotices(required string id) {
+		var packet = {
+			 resource: '/pages/#arguments.id#/notices'
+			,method = 'GET'
+		};
+
+		var response = send(packet);
+		var parsedResponse = parseResponse(response);
+
+		return parsedResponse;
+	}
+
+	function getNotice(required string id, required numeric notice) {
+		var packet = {
+			 resource: '/pages/#arguments.id#/notices/#arguments.notice#'
+			,method = 'GET'
+		};
+
+		var response = send(packet);
+		var parsedResponse = parseResponse(response);
+
+		return parsedResponse;
+	}
+
+	function addNotice(
+		 required string id
+		,required string initial_comment
+	) {
+		var packet = {
+			 resource: '/pages/#arguments.id#/notices'
+			,method = 'POST'
+		};
+
+		packet.params = [];
+
+		for (var argument in arguments) {
+			arrayAppend(packet.params, {name=argument, value=arguments[argument]});
+		}
+
+		var response = send(packet);
+		var parsedResponse = parseResponse(response);
+
+		return parsedResponse;
+	}
+
+	function updateNotice(
+		 required string id
+		,required numeric notice
+		,required string additional_comment=''
+		,required string state_event=''
+	) {
+		var packet = {
+			 resource: '/pages/#arguments.id#/notices/#arguments.notice#'
+			,method = 'PATCH'
+		};
+
+		packet.params = [];
+
+		for (var argument in arguments) {
+			arrayAppend(packet.params, {name=argument, value=arguments[argument]});
+		}
+
+		var response = send(packet);
+		var parsedResponse = parseResponse(response);
+
+		return parsedResponse;
+	}
+
+	function deleteNotice(required string id) {
 		var packet = {
 			 resource: '/pages/#arguments.id#'
 			,method = 'DELETE'

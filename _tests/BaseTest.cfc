@@ -38,6 +38,10 @@ component extends='testbox.system.BaseSpec' {
 			,google_analytics_id: "UA-00000-00"
 		};
 
+		variables.mockedNoticeData = {
+			 initial_comment: "My first Status Page Notice"
+		};
+
 		variables.mockedBrandData = {
 			 color_state_ok: "##999"
 			,color_state_warning: "##999"
