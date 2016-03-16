@@ -1,0 +1,16 @@
+title: Notice Updates
+method: getNoticeUpdates()
+description: I retrieve all the Status Page Notice Updates.
+example: noticeUpdates = cfSorry.getNoticeUpdates(id="f025a2e8", notice="1021")
+
+arguments:
+  - argument: id
+    required: true
+    default: --
+    description: The unique identifier for the Status Page.
+  - argument: notice
+    required: true
+    default: --
+    description: The unique identifier for the Notice.
+
+response: response/noticeupdates/list.html

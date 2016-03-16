@@ -11,14 +11,25 @@
 			</ul>
 		</li>
 
-		<li class="dropdown {% if page.dir == '/Notices' %}active{% endif %}">
+		<li class="dropdown {% if page.dir == '/notices' %}active{% endif %}">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notices <span class="caret"></span></a>
 			<ul class="dropdown-menu">
 				<li><a href="{{ site.url }}{{ site.baseurl }}/notices/add.html">addNotice()</a></li>
 				<li><a href="{{ site.url }}{{ site.baseurl }}/notices/view.html">getNotice()</a></li>
 				<li><a href="{{ site.url }}{{ site.baseurl }}/notices/list.html">getNotices()</a></li>
 				<li><a href="{{ site.url }}{{ site.baseurl }}/notices/update.html">updateNotice()</a></li>
-				<li><a href="{{ site.url }}{{ site.baseurl }}/notices/delete.html">deletePage()</a></li>
+				<li><a href="{{ site.url }}{{ site.baseurl }}/notices/delete.html">deleteNotice()</a></li>
+			</ul>
+		</li>
+
+		<li class="dropdown {% if page.dir == '/updates' %}active{% endif %}">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notice Updates <span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="{{ site.url }}{{ site.baseurl }}/noticeupdates/add.html">addNoticeUpdate()</a></li>
+				<li><a href="{{ site.url }}{{ site.baseurl }}/noticeupdates/view.html">getNoticeUpdate()</a></li>
+				<li><a href="{{ site.url }}{{ site.baseurl }}/noticeupdates/list.html">getNoticeUpdates()</a></li>
+				<li><a href="{{ site.url }}{{ site.baseurl }}/noticeupdates/update.html">updateNoticeUpdate()</a></li>
+				<li><a href="{{ site.url }}{{ site.baseurl }}/noticeupdates/delete.html">deleteNoticeUpdate()</a></li>
 			</ul>
 		</li>
 

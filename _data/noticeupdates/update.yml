@@ -1,0 +1,24 @@
+title: Notice Updates
+method: updateNoticeUpdate()
+description: I update a Status Page Notice Update for the account.
+example: noticeUpdate = cfSorry.updateNoticeUpdate(id="f025a2e8", notice="1021", update="2185", content="My updated Notice Update")
+
+arguments:
+  - argument: id
+    required: true
+    default: --
+    description: The unique identifier for the Status Page.
+  - argument: notice
+    required: true
+    default: --
+    description: The unique identifier for the Notice.
+  - argument: update
+    required: true
+    default: --
+    description: The unique identifier for the Notice Update.
+  - argument: content
+    required: true
+    default: --
+    description: The text content for this particular update.
+
+response: response/noticeupdates/update.html
