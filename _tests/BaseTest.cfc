@@ -42,6 +42,14 @@ component extends='testbox.system.BaseSpec' {
 			 initial_comment: "My first Status Page Notice"
 		};
 
+		variables.mockedNoticeUpdateData = {
+			 content: "My first Notice Update"
+		};
+
+		variables.mockedNoticeUpdateDataUpdated = {
+			 content: "My updated Notice Update"
+		};
+
 		variables.mockedBrandData = {
 			 color_state_ok: "##999"
 			,color_state_warning: "##999"

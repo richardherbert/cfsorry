@@ -9,7 +9,7 @@ component {
 	}
 
 	function getVersion() {
-		return 'v0.5';
+		return 'v0.6';
 	}
 
 	function getPages() {
@@ -187,6 +187,95 @@ component {
 		return parsedResponse;
 	}
 
+
+/////////////////////////////////////////////////////////////////////
+
+	function getNoticeUpdates(required string id, required numeric notice) {
+		var packet = {
+			 resource: '/pages/#arguments.id#/notices/#arguments.notice#/updates'
+			,method = 'GET'
+		};
+
+		var response = send(packet);
+		var parsedResponse = parseResponse(response);
+
+		return parsedResponse;
+	}
+
+	function getNoticeUpdate(required string id, required numeric notice, required numeric update) {
+		var packet = {
+			 resource: '/pages/#arguments.id#/notices/#arguments.notice#/updates/#arguments.update#'
+			,method = 'GET'
+		};
+
+		var response = send(packet);
+		var parsedResponse = parseResponse(response);
+
+		return parsedResponse;
+	}
+
+	function addNoticeUpdate(
+		 required string id
+		,required string notice
+		,required string content
+	) {
+		var packet = {
+			 resource: '/pages/#arguments.id#/notices/#arguments.notice#/updates'
+			,method = 'POST'
+		};
+
+		packet.params = [];
+
+		for (var argument in arguments) {
+			arrayAppend(packet.params, {name=argument, value=arguments[argument]});
+		}
+
+		var response = send(packet);
+
+		var parsedResponse = parseResponse(response);
+
+		return parsedResponse;
+	}
+
+	function updateNoticeUpdate(
+		 required string id
+		,required numeric notice
+		,required numeric update
+		,required string content=''
+	) {
+		var packet = {
+			 resource: '/pages/#arguments.id#/notices/#arguments.notice#/updates/#arguments.update#'
+			,method = 'PATCH'
+		};
+
+		packet.params = [];
+
+		for (var argument in arguments) {
+			arrayAppend(packet.params, {name=argument, value=arguments[argument]});
+		}
+
+		var response = send(packet);
+		var parsedResponse = parseResponse(response);
+
+		return parsedResponse;
+	}
+
+	function deleteNoticeUpdate(
+		 required string id
+		,required numeric notice
+		,required numeric update
+	) {
+		var packet = {
+			 resource: '/pages/#arguments.id#/notices/#arguments.notice#/updates/#arguments.update#'
+			,method = 'DELETE'
+		};
+
+		var response = send(packet);
+		var parsedResponse = parseResponse(response);
+
+		return parsedResponse;
+	}
+
 /////////////////////////////////////////////////////////////////////
 
 	function getBrand(required string id) {
@@ -330,6 +419,7 @@ component {
 
 		httpService['getParameters'] = getParameters;
 
+
 		switch(packet.method){
 			case "POST":
 			case "PATCH":
@@ -351,6 +441,7 @@ component {
 		httpService.addParam(name='wrapper', value='cfSorry', type='header');
 		httpService.addParam(name='Authorization', value='Bearer #variables.apiToken#', type='header');
 
+// writedump(var='#httpService.getParameters()#', label='httpService', format='text', expand=0, abort=1);
 		response = httpService.send().getPrefix();
 
 		return response;
@@ -370,6 +461,7 @@ component {
 
 		var fileContentJSON = arguments.response.filecontent.toString();
 
+// writedump(var='#fileContentJSON#', label='fileContentJSON', format='text', expand=1, abort=0);
 		if (isSimpleValue(fileContentJSON) && fileContentJSON == 'Connection Failure') {
 			result.success = false;
 			result.failure = true;
@@ -401,6 +493,9 @@ component {
 			break;
 
 			default:
+
+
+
 				if (len(fileContentJSON) == 0) {
 					result.error = {};
 				} else {
