@@ -419,7 +419,6 @@ component {
 
 		httpService['getParameters'] = getParameters;
 
-
 		switch(packet.method){
 			case "POST":
 			case "PATCH":
@@ -441,7 +440,6 @@ component {
 		httpService.addParam(name='wrapper', value='cfSorry', type='header');
 		httpService.addParam(name='Authorization', value='Bearer #variables.apiToken#', type='header');
 
-// writedump(var='#httpService.getParameters()#', label='httpService', format='text', expand=0, abort=1);
 		response = httpService.send().getPrefix();
 
 		return response;
@@ -520,12 +518,21 @@ component {
 		var entries = structFindKey(arguments.data, arguments.key, 'all');
 
 		for (var entry in entries) {
-			var newValue = parseDateTime(entry.value);
+			var newValue = parseISO8601DateTime(entry.value);
 
 			structUpdate(entry.owner, arguments.key, newValue);
 		}
 
 		return arguments.data;
+	}
+
+	private datetime function parseISO8601DateTime(ISO8601dateString) {
+		// strip decimal seconds from the submitted date/time
+		ISO8601dateString = reReplaceNoCase(ISO8601dateString, '\.[0-9]+', '', 'one');
+
+		var rawDatetime = left(ISO8601dateString,10) & ' ' & mid(ISO8601dateString,12,8);
+
+		return createODBCDateTime(rawDatetime);
 	}
 
 	private array function getParameters()
