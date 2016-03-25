@@ -31,7 +31,7 @@ component extends='example._tests.BaseTest' {
 
 							expect(data.id).toBeString();
 							expect(data.name).toBe('');
-							expect(data.timezone).toBe('');
+							expect(data.timezone).toBe('UTC');
 							expect(data.support_email).toBe('');
 							expect(data.support_telephone).toBe('');
 							expect(data.support_url).toBe('');
