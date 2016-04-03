@@ -419,9 +419,14 @@ component {
 
 		httpService['getParameters'] = getParameters;
 
+		httpService.setCharset(variables.charset);
+		httpService.setMethod(packet.method);
+
 		switch(packet.method){
-			case "POST":
 			case "PATCH":
+				httpService.setMethod("POST");
+				httpService.addParam(name='X-HTTP-Method-Override', value='PATCH', type='header');
+			case "POST":
 				httpService.addParam(name='Content-Type', type='header', value='application/x-www-form-urlencoded; charset=UTF-8');
 
 				for (var param in arguments.packet.params) {
@@ -434,8 +439,6 @@ component {
 		}
 
 		httpService.setURL(endpointURL);
-		httpService.setMethod(packet.method);
-		httpService.setCharset(variables.charset);
 
 		httpService.addParam(name='wrapper', value='cfSorry', type='header');
 		httpService.addParam(name='Authorization', value='Bearer #variables.apiToken#', type='header');
