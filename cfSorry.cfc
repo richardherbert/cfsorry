@@ -9,7 +9,7 @@ component {
 	}
 
 	function getVersion() {
-		return 'v0.6.1';
+		return 'v0.7';
 	}
 
 	function getPages() {
